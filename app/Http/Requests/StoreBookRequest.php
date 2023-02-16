@@ -3,19 +3,21 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class StoreBookRequest extends FormRequest
 {
 
     public function authorize()
     {
-        return Auth::hasUser();
+        return true;
     }
 
 
     public function rules()
     {
-        return [];
+        return [
+            'title' => 'required',
+            'description' => 'required'
+        ];
     }
 }
